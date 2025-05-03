@@ -1,0 +1,27 @@
+{
+    "manifest_version": 3,
+    "name": "GeM Helper - Product Bids",
+    "version": "1.0",
+    "description": "Scrape and export Product Bids from GeM.",
+    "permissions": [
+      "scripting",
+      "activeTab"
+    ],
+    "host_permissions": [
+      "https://bidplus.gem.gov.in/*"
+    ],
+    "content_scripts": [
+      {
+        "matches": ["https://bidplus.gem.gov.in/seller-bids*"],
+        "js": ["xlsx.full.min.js", "content.js"]
+      }
+    ],
+    "action": {
+      "default_popup": "popup.html"
+      // "default_icon": {
+      //   "16": "icon16.png",
+      //   "48": "icon48.png",
+      //   "128": "icon128.png"
+      // }
+    }
+  }

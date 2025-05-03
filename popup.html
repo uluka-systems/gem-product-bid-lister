@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>GeM Helper</title>
+</head>
+<body>
+  <h3>GeM Helper</h3>
+  <button id="run">Scrape Bids</button>
+  <script>
+    document.getElementById('run').addEventListener('click', async () => {
+      let [tab] = await chrome.tabs.query({ active: true, currentWindow: true });
+      chrome.scripting.executeScript({
+        target: { tabId: tab.id },
+        files: ['content.js']
+      });
+    });
+  </script>
+</body>
+</html>
